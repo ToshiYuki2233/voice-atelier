@@ -87,3 +87,36 @@ test('track mute, track end and context interruption stop input without auto-res
     assert.equal(input.track.readyState, 'ended');
   }
 });
+
+test('screen stays awake only while a session holds it, and a late grant is released', async () => {
+  const { ScreenAwake } = await import('../public/audio-session.js');
+  const released = [];
+  const sentinel = name => ({ release: async () => { released.push(name); } });
+
+  const unsupported = new ScreenAwake(undefined);
+  assert.equal(unsupported.supported, false);
+  assert.equal(await unsupported.acquire(), 'unsupported');
+  unsupported.release();
+
+  const refused = new ScreenAwake({ request: async () => { throw new Error('NotAllowedError'); } });
+  assert.equal(await refused.acquire(), 'refused');
+  assert.equal(refused.sentinel, null);
+
+  const granted = new ScreenAwake({ request: async type => { assert.equal(type, 'screen'); return sentinel('first'); } });
+  assert.equal(await granted.acquire(), 'held');
+  granted.release();
+  await Promise.resolve();
+  assert.deepEqual(released, ['first'], 'stop must release the held lock');
+  assert.equal(granted.sentinel, null);
+
+  // Stop pressed while the request is still pending: the grant must not linger.
+  let grant;
+  const slow = new ScreenAwake({ request: () => new Promise(resolve => { grant = resolve; }) });
+  const pending = slow.acquire();
+  slow.release();
+  grant(sentinel('late'));
+  assert.equal(await pending, 'cancelled');
+  await Promise.resolve();
+  assert.ok(released.includes('late'), 'a lock granted after stop must be released');
+  assert.equal(slow.sentinel, null);
+});

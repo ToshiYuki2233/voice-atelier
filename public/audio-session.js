@@ -84,3 +84,43 @@ export class AudioSession {
     if (resources.context.state !== 'closed') resources.context.close().catch(() => {});
   }
 }
+
+// Keeps the screen on only while the microphone is in use. On iPad, auto-lock
+// hides the page, and a hidden page must stop the microphone, so without this a
+// pause between takes could end the session in front of the audience. Nothing is
+// held while idle, and a stop that lands while a request is still pending
+// releases the lock as soon as it arrives.
+export class ScreenAwake {
+  constructor(wakeLock) {
+    this.wakeLock = wakeLock;
+    this.sentinel = null;
+    this.generation = 0;
+  }
+
+  get supported() {
+    return typeof this.wakeLock?.request === 'function';
+  }
+
+  async acquire() {
+    const generation = ++this.generation;
+    if (!this.supported) return 'unsupported';
+    try {
+      const sentinel = await this.wakeLock.request('screen');
+      if (generation !== this.generation) {
+        sentinel?.release?.().catch?.(() => {});
+        return 'cancelled';
+      }
+      this.sentinel = sentinel;
+      return 'held';
+    } catch {
+      return 'refused';
+    }
+  }
+
+  release() {
+    this.generation++;
+    const sentinel = this.sentinel;
+    this.sentinel = null;
+    sentinel?.release?.().catch?.(() => {});
+  }
+}

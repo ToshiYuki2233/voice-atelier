@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'voice-atelier-';
-const CACHE_NAME = CACHE_PREFIX + 'v10';
+const CACHE_NAME = CACHE_PREFIX + 'v11';
 const ASSETS = [
   './', './index.html', './styles.css', './app.js', './analysis.js', './spectrum.js', './expression-model.js',
   './audio-session.js', './manifest.webmanifest', './icons/icon.svg',

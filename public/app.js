@@ -1,7 +1,7 @@
 import { measureLevel, estimatePitch, PitchReadout } from './analysis.js';
 import { measureSpectralBalance, measureVoiceQuality, toSemitone } from './spectrum.js';
 import { ExpressionModel, LightSmoother, LevelEnvelope, MessageHold, Band } from './expression-model.js';
-import { AudioSession } from './audio-session.js';
+import { AudioSession, ScreenAwake } from './audio-session.js';
 
 const element = id => document.getElementById(id);
 const startButton = element('start-button');
@@ -33,6 +33,7 @@ const IDLE_EXPRESSION = 'マイクを開始すると、数秒後に表示され�
 // Delivery directions only, so they work with whatever line the performer types.
 const cues = ['静かに、ささやくように', '明るく、弾ませて', '強く、言い切る'];
 let cueIndex = 0;
+const screenAwake = new ScreenAwake(navigator.wakeLock);
 const microphone = new AudioSession({
   mediaDevices: navigator.mediaDevices,
   AudioContextClass,
@@ -177,6 +178,7 @@ function resetMeasurements() {
 
 function stop(message = '停止しました。音声バッファと表示を消去しました。') {
   microphone.stop();
+  screenAwake.release();
   cancelAnimationFrame(frame);
   mode = 'idle';
   startButton.disabled = !isSupported();
@@ -245,6 +247,8 @@ startButton.addEventListener('click', async () => {
   stopButton.disabled = false;
   element('session-badge').textContent = '許可を確認中';
   element('status').textContent = 'マイクの許可を確認しています。取り消す場合は「停止」を押してください。';
+  // Asked for inside the tap, before the permission prompt, while the gesture still counts.
+  const awake = screenAwake.acquire();
   try {
     const resources = await microphone.start();
     if (!resources) return;
@@ -261,8 +265,15 @@ startButton.addEventListener('click', async () => {
     element('status').textContent = '声を出してみてください。端末内でリアルタイムに計測しています。';
     const settings = resources.stream.getAudioTracks()[0]?.getSettings() || {};
     const setting = value => value === undefined ? '不明' : value ? '有効' : '無効';
-    element('input-info').textContent = '解析レート ' + resources.context.sampleRate.toLocaleString() + ' Hz · 自動ゲイン ' + setting(settings.autoGainControl) + ' · ノイズ抑制 ' + setting(settings.noiseSuppression) + ' · エコー除去 ' + setting(settings.echoCancellation);
+    const inputInfo = '解析レート ' + resources.context.sampleRate.toLocaleString() + ' Hz · 自動ゲイン ' + setting(settings.autoGainControl) + ' · ノイズ抑制 ' + setting(settings.noiseSuppression) + ' · エコー除去 ' + setting(settings.echoCancellation);
+    element('input-info').textContent = inputInfo;
     frame = requestAnimationFrame(render);
+    // Measurement is already running; the lock result only adds a note.
+    const lock = await awake;
+    if (mode !== 'running' || microphone.resources !== resources) return;
+    element('input-info').textContent = inputInfo + ' · ' + (lock === 'held'
+      ? '画面の自動ロック防止 有効'
+      : '画面の自動ロック防止 ' + (lock === 'unsupported' ? '非対応' : '無効') + '（iPadの自動ロックを「なし」にしてください）');
   } catch (error) {
     stop(errorMessages[error.name] || '音声入力を開始できませんでした。端末の設定を確認し、もう一度お試しください。');
   }
