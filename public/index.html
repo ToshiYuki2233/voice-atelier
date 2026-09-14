@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#132a2b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; worker-src 'self'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>声のアトリエ — 声で見せる自己アピール</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="声のアトリエ ホーム"><span class="brand-icon" aria-hidden="true">◖</span> 声のアトリエ</a>
+      <span class="edition">LIVE VOICE PERFORMANCE · 02</span>
+    </header>
+    <div class="intro">
+      <p class="eyebrow">声と光で見せる、自己アピール。</p>
+      <h1>ひとつの声で、場面を変える。</h1>
+      <p class="lead">同じひと言を、違う演じ方で。<br>声の大きさで光が広がり、高さで光の位置と色が変わります。</p>
+      <p class="feature-note">現在は声の特徴に反応する演出です。感情分類モデルは未導入のため、喜怒哀楽の判定は行いません。</p>
+    </div>
+    <div class="workspace">
+      <section class="studio" aria-labelledby="studio-title">
+        <div class="section-heading">
+          <h2 id="studio-title">声のステージ</h2>
+          <span id="session-badge" class="badge">待機中</span>
+        </div>
+        <div class="voice-stage">
+          <div class="stage-topline"><span>声がつくる光</span><span>端末内で反応 · 録音なし</span></div>
+          <canvas id="voice-stage" width="960" height="460" role="img" aria-label="声の大きさで光が広がり、推定した声の高さで光の位置が、計測した勢いで光の色が変わります。感情の判定ではありません。"></canvas>
+          <p id="stage-status" class="stage-status">マイクを開始して、台詞を話してください。</p>
+          <div class="stage-cue">
+            <span class="cue-label">演じ方の指示（手動で切替） <span id="cue-number">1 / 3</span></span>
+            <strong id="cue-title">静かに、ささやくように</strong>
+            <label class="cue-line-label" for="cue-line">台詞（自由に書き換えられます）</label>
+            <input id="cue-line" class="cue-line" type="text" value="わかりました。" maxlength="60" autocomplete="off" spellcheck="false">
+            <button id="cue-button" type="button">次の指示 →</button>
+          </div>
+          <p class="stage-key">大きさ → 光の広がり ／ 高さ → 光の上下 ／ 勢い → 色（寒色⇄暖色）<br>感情分類モデル：未導入。色は計測した勢いの目印で、喜怒哀楽ではありません。</p>
+        </div>
+        <details class="signal-details">
+          <summary>波形・計測値を見る</summary>
+        <div class="wave-container">
+          <div class="wave-label"><span>入力波形</span><span>LIVE INPUT</span></div>
+          <canvas id="waveform" width="960" height="260" role="img" aria-label="マイク入力の波形。開始後に実際の入力に反応します。"></canvas>
+          <p id="wave-hint">「マイクを開始」で、声の変化がここに現れます。</p>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <h3>入力レベル <span>RMS</span></h3>
+            <p class="metric-value"><output id="level-value">—</output><span>dBFS</span></p>
+            <meter id="level-meter" min="-60" max="0" value="-60" aria-label="入力レベル" aria-valuetext="未計測"></meter>
+            <p>マイク信号の大きさ。実際の音圧ではありません。</p>
+          </div>
+          <div class="metric">
+            <h3>声の高さ <span>推定基本周波数</span></h3>
+            <p class="metric-value"><output id="pitch-value">—</output><span>Hz</span></p>
+            <p id="pitch-hint">まず「あー」と2秒ほど伸ばしてみてください。</p>
+          </div>
+          <div class="metric metric-wide">
+            <h3>声の四つの尺度 <span>規則ベース・学習なし</span></h3>
+            <p id="expression-state" class="expression-state">マイクを開始すると、数秒後に表示されます。</p>
+            <ul class="axis-list">
+              <li><span class="axis-name">勢い</span><meter id="axis-power" min="-1" max="1" value="0" aria-label="勢い" aria-valuetext="未計測"></meter><output id="axis-power-value">—</output><output id="axis-power-coverage" class="axis-coverage" title="この軸のうち、いま実際に測れている要素の割合">—</output><span class="axis-note">大きさ・高さ・音の山の多さ</span></li>
+              <li><span class="axis-name">張り</span><meter id="axis-edge" min="-1" max="1" value="0" aria-label="張り" aria-valuetext="未計測"></meter><output id="axis-edge-value">—</output><output id="axis-edge-coverage" class="axis-coverage" title="この軸のうち、いま実際に測れている要素の割合">—</output><span class="axis-note">高域と低域のエネルギー比</span></li>
+              <li><span class="axis-name">揺れ</span><meter id="axis-waver" min="-1" max="1" value="0" aria-label="揺れ" aria-valuetext="未計測"></meter><output id="axis-waver-value">—</output><output id="axis-waver-coverage" class="axis-coverage" title="この軸のうち、いま実際に測れている要素の割合">—</output><span class="axis-note">周期と振幅の乱れ・雑音の比</span></li>
+              <li><span class="axis-name">幅</span><meter id="axis-spread" min="-1" max="1" value="0" aria-label="幅" aria-valuetext="未計測"></meter><output id="axis-spread-value">—</output><output id="axis-spread-coverage" class="axis-coverage" title="この軸のうち、いま実際に測れている要素の割合">—</output><span class="axis-note">直近の高さと大きさの振れ幅</span></li>
+            </ul>
+            <p>直前12秒の自分の声と比べた向きです。0は「いつもの範囲」、「—」は測れていないことを表し、意味が違います。右端は、その軸の要素のうちいま実際に測れている割合です。測れない要素があるときは、その分だけ値が中央に寄ります。感情の判定でも、演技力の点数でもありません。四つを合計した総合点は出しません。</p>
+          </div>
+        </div>
+        </details>
+        <div class="controls">
+          <button id="start-button" class="primary" type="button"><span aria-hidden="true">●</span> マイクを開始</button>
+          <button id="stop-button" class="secondary" type="button" disabled>停止</button>
+          <button id="presentation-button" class="secondary" type="button" aria-pressed="false">本番表示へ</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite">準備ができたら、マイクを開始してください。</p>
+        <p id="input-info" class="small">録音・保存は行いません。停止すると表示も消去します。</p>
+      </section>
+      <aside class="sidebar">
+        <section class="note-card">
+          <p class="eyebrow">本番での見せ方</p>
+          <h2>ひと言を、<br>三つの演じ方で。</h2>
+          <ol class="show-guide">
+            <li>「マイクを開始」し、iPadを審査員から見える向きに置きます。</li>
+            <li>「声の演じ分けを、光と一緒にご覧ください」と紹介します。</li>
+            <li>「本番表示へ」を押し、同じ台詞をお題に合わせて演じます。</li>
+            <li>「次の指示」で演じ方を切り替え、最後に「停止」を押します。</li>
+          </ol>
+          <p>台詞は書き換えられます。ご自身のオーディション用の一節を入れてください。入力した文字は端末外へ送らず、保存もしません。ページを開き直すと既定の一文に戻ります。</p>
+          <p>光の変化は声の特徴の目印です。表現や感情を伝える主役は、あなたの演技です。</p>
+          <span class="note-index">操作確認には「あー」と2秒ほど発声</span>
+        </section>
+        <section class="privacy-card" aria-labelledby="privacy-title">
+          <h2 id="privacy-title">声は、この端末の中だけに。</h2>
+          <ul>
+            <li>音声・解析結果を送信しません</li>
+            <li>音声の録音・保存をしません</li>
+            <li>アクセス解析・外部ログ送信なし</li>
+          </ul>
+          <p id="offline-status" class="offline-status" role="status">オフライン準備を確認しています…</p>
+        </section>
+      </aside>
+    </div>
+    <section class="model-card" aria-labelledby="model-title">
+      <div><p class="eyebrow">ANALYSIS STATUS</p><h2 id="model-title">感情分類モデル：未導入</h2></div>
+      <p>喜怒哀楽のラベル付けは行いません。「声の四つの尺度」は学習済みモデルではなく、公開研究で定義された音響特徴量を固定の規則で計算した値です。モデルファイル・学習・微調整・個人適応はありません。直前に声を検出していない間は何も表示しません。測れない要素がある軸は、その分だけ値が中央に寄り、割合が下がります。<br>光は実際に計測した値だけに反応します。大きさが広がり、高さが上下、勢いが色です。色に感情の名前は割り当てていません。感情スコアや演技力の点数は表示しません。</p>
+    </section>
+    <details class="details">
+      <summary>計測について・モデル候補の出典と利用条件</summary>
+      <p>入力レベルは短い音声窓のRMSから計算しています。声の高さは周期性から推定した60〜1,000 Hzの基本周波数です。高さを検出できない間は、直前の実際の検出値を最大1.5秒だけ、その旨を表示して残します。その後は「—」になり、光は中央に戻ります。色は「勢い」の軸に連動し、寒色が弱め、暖色が強めを表します。勢いを算出できない間は中立色です。色の濃さは、いま測れている要素の割合に連動して薄くなります。「張り」の軸は日本語24例で予測を満たさなかったため、光には使っていません。雑音や倍音で誤推定する場合があり、話者の性別・感情・演技力は判定しません。端末のマイク処理や距離によって値は変わります。</p>
+      <p>「声の四つの尺度」は、勢い・張り・揺れ・幅の四つです。勢いは高さ・大きさ・音の山の数、張りは高域と低域のエネルギー比（Alpha Ratio、Hammarberg Index）、揺れは周期と振幅の乱れおよび調波雑音比、幅は直近1.2秒の高さと大きさの振れ幅から計算します。特徴量の定義はGeMAPS（Eyben et al., IEEE Transactions on Affective Computing, 2016、CC BY 3.0）に基づき、この端末上で新規に実装したものです。openSMILEおよびPraatのコードは使用していません。各軸は構成要素を等しい重み（すべて1）で合計し、測れた分ではなく全要素の重みで割ります。測れない要素は何も足さないため、残りの要素が欠測分を代表することはありません。重みは録音データに合わせて調整していません。表示は直前12秒の自分の声と比べた向きで、0は「いつもの範囲」です。絶対的な強さでも、他人との比較でもありません。値は保存せず、停止時に破棄します。</p>
+      <p>検討モデル：audEERING GmbH / wav2vec2-large-robust-12-ft-emotion-msp-dim。ライセンス表記：CC BY-NC-SA 4.0。モデルカードに研究目的のみとの記載があります。無料のオーディション参加であっても非商用・研究目的に該当するとは限りません。本アプリにモデル・推論ランタイムは含まれていません。</p>
+      <p>モデル配布時には作者・出典・ライセンス・免責表示を残し、変更内容を記載し、改変物の共有には継承条件を確認します。audEERINGによる本アプリの推奨・認定を意味しません。</p>
+      <p>以下は利用者が開いた場合のみ外部サイトへ移動します。</p>
+      <p class="source-links"><a href="https://huggingface.co/audeering/wav2vec2-large-robust-12-ft-emotion-msp-dim" target="_blank" rel="noopener noreferrer">モデルカード ↗</a><a href="https://zenodo.org/records/6221127" target="_blank" rel="noopener noreferrer">公式ONNX配布 ↗</a><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank" rel="noopener noreferrer">利用条件 ↗</a></p>
+    </details>
+    <footer><span>声のアトリエ</span><span>あなたの声が、この場をつくる。</span></footer>
+  </main>
+</body>
+</html>

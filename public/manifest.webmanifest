@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "声のアトリエ — 声で見せる自己アピール",
+  "short_name": "声のアトリエ",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f3ec",
+  "theme_color": "#132a2b",
+  "description": "音声を保存・送信せず、声の大きさと高さに光が反応する自己アピール用アプリ。",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

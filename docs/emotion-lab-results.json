@@ -1,0 +1,697 @@
+{
+  "checkedAt": "2026-09-13T05:24:47.110Z",
+  "browser": "Chrome/152.0.7977.83",
+  "cpu": "Intel(R) Core(TM) i5-10400 CPU @ 2.90GHz",
+  "scope": "Public Japanese corpus, central 3-second windows; no user microphone; not iPad validation or general accuracy",
+  "model": {
+    "modelId": "onnx-community/wav2vec2-emotion-recognition-ONNX",
+    "revision": "8e0e66145d3a67fb99291f7834d35f073581114b",
+    "runtime": "onnxruntime-web@1.29.0",
+    "files": [
+      {
+        "path": "model/model_q4.onnx",
+        "bytes": 89860722,
+        "sha256": "363653a4bce950ddd17026efdabdf6c7a6843e00089bcbaf424c0cdf0b6ebff2"
+      },
+      {
+        "path": "model/config.json",
+        "bytes": 2368,
+        "sha256": "6e6f37a556c837587b07692a17bb9380339625f4eb82aa5b19b8d435e508bb92"
+      },
+      {
+        "path": "model/preprocessor_config.json",
+        "bytes": 257,
+        "sha256": "617bd0950f8cc9ac4062e8c73a7be60305ca5790a243df55fa6f44fb671b55b1"
+      },
+      {
+        "path": "model/README.md",
+        "bytes": 5445,
+        "sha256": "920fb6fb0d024c1935327f1560c23271ddd9d32c9e9a88db7b5a9bc398921a94"
+      },
+      {
+        "path": "runtime/ort.wasm.min.mjs",
+        "bytes": 50126,
+        "sha256": "14a0a63ad1a0fe8127722929fd16fb26c2e5352ea221bc9034d12daf314d0b92"
+      },
+      {
+        "path": "runtime/ort-wasm-simd-threaded.mjs",
+        "bytes": 24218,
+        "sha256": "5a15f1fd086b3f6c2baf1f35105b8f502653b567e165cef80028870b39748747"
+      },
+      {
+        "path": "runtime/ort-wasm-simd-threaded.wasm",
+        "bytes": 13961845,
+        "sha256": "ec8580a9d7b9476ceee52e10a7f94124e4dc71a019d666ed6d4726697c109a4d"
+      },
+      {
+        "path": "runtime/LICENSE",
+        "bytes": 1073,
+        "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+      },
+      {
+        "path": "runtime/ThirdPartyNotices.txt",
+        "bytes": 336906,
+        "sha256": "53d3fa5821ac016ac24dd35775c996efec86e2ae0841e9a3a5e146c0ae916845"
+      }
+    ]
+  },
+  "session": {
+    "loadMs": 1112.8999999999069,
+    "inputNames": [
+      "input_values"
+    ],
+    "outputNames": [
+      "logits"
+    ],
+    "labels": {
+      "0": "angry",
+      "1": "calm",
+      "2": "disgust",
+      "3": "fearful",
+      "4": "happy",
+      "5": "sad",
+      "6": "surprised"
+    }
+  },
+  "controls": [
+    {
+      "kind": "silence",
+      "label": "sad",
+      "logits": [
+        -3.2385592460632324,
+        -0.3465685546398163,
+        0.49364757537841797,
+        1.4274369478225708,
+        -3.304924488067627,
+        5.487148761749268,
+        -1.2110199928283691
+      ],
+      "inferenceMs": 2430.600000000093
+    },
+    {
+      "kind": "tone",
+      "label": "sad",
+      "logits": [
+        -2.903679847717285,
+        1.5723801851272583,
+        0.9629263877868652,
+        0.7137070298194885,
+        -1.4897534847259521,
+        3.514861822128296,
+        -3.293830394744873
+      ],
+      "inferenceMs": 2004.6999999997206
+    },
+    {
+      "kind": "noise",
+      "label": "sad",
+      "logits": [
+        -2.585615873336792,
+        -1.8879189491271973,
+        1.7065904140472412,
+        2.527642011642456,
+        -1.9732105731964111,
+        3.781036615371704,
+        -2.7962286472320557
+      ],
+      "inferenceMs": 2018.1999999997206
+    },
+    {
+      "kind": "tone",
+      "label": "sad",
+      "logits": [
+        -2.903679847717285,
+        1.5723801851272583,
+        0.9629263877868652,
+        0.7137070298194885,
+        -1.4897534847259521,
+        3.514861822128296,
+        -3.293830394744873
+      ],
+      "inferenceMs": 2106.5
+    }
+  ],
+  "dataset": "asahi417/jvnv-emotional-speech-corpus",
+  "datasetRevision": "3b6c3794754e9e514766e898f69604a0f7417218",
+  "selection": "First published row per speaker/emotion pair, fixed before inference; 4 speakers x 6 emotions; center up to 3 seconds; 16 kHz mono with browser resampling and Wav2Vec2 normalization",
+  "results": [
+    {
+      "id": "jvnv-row-0",
+      "row": 0,
+      "speaker": "F1",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "0c6aa300d3b0e89d5ee54768739fbcee55c0672aaa6b5281db4050489f314a7b",
+      "label": "fearful",
+      "logits": [
+        -1.9689056873321533,
+        -1.9499235153198242,
+        -1.6413116455078125,
+        4.754878044128418,
+        0.506165623664856,
+        0.6408673524856567,
+        -1.9203704595565796
+      ],
+      "inferenceMs": 2324.2999999998137,
+      "originalSeconds": 8.268625,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-67",
+      "row": 67,
+      "speaker": "F1",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "dc23db26aa3e837f1f4cd5e321c3708469ff7d0ecfe1a7674b0d216c467f18a6",
+      "label": "happy",
+      "logits": [
+        -1.8760942220687866,
+        -1.9103844165802002,
+        -1.7808295488357544,
+        0.43481579422950745,
+        3.865936040878296,
+        -2.2160708904266357,
+        2.596924304962158
+      ],
+      "inferenceMs": 2189.7000000001863,
+      "originalSeconds": 8.1885,
+      "windowSeconds": 3,
+      "match": true
+    },
+    {
+      "id": "jvnv-row-125",
+      "row": 125,
+      "speaker": "F1",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "b5e59d45b2d8ea3e8d267a77cd01602f55f95a06155a85d3f2f701c1974a0f80",
+      "label": "fearful",
+      "logits": [
+        -2.814427137374878,
+        -2.138371706008911,
+        0.14500939846038818,
+        4.0152907371521,
+        -1.4804795980453491,
+        3.1999056339263916,
+        -2.403752326965332
+      ],
+      "inferenceMs": 2002.2000000001863,
+      "originalSeconds": 13.325,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-184",
+      "row": 184,
+      "speaker": "F1",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "95a026f2a998df4d7d01b9b2d7574dc378a77fe40267c8f313736f5f46c2ae14",
+      "label": "fearful",
+      "logits": [
+        -1.4658023118972778,
+        -2.275420665740967,
+        -1.4470257759094238,
+        4.752042293548584,
+        0.26786211133003235,
+        0.4875541627407074,
+        -1.7359827756881714
+      ],
+      "inferenceMs": 2025.0999999996275,
+      "originalSeconds": 9.9646875,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-238",
+      "row": 238,
+      "speaker": "F1",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "4978d2d044cdf52b58fce76fb5db81b630bd1ff66f67cd904ab8777c524f9504",
+      "label": "fearful",
+      "logits": [
+        -2.3269777297973633,
+        -1.8329957723617554,
+        -1.6701024770736694,
+        4.659977912902832,
+        0.3142254650592804,
+        0.9496179819107056,
+        -1.6789900064468384
+      ],
+      "inferenceMs": 2088.9000000003725,
+      "originalSeconds": 11.982125,
+      "windowSeconds": 3,
+      "match": true
+    },
+    {
+      "id": "jvnv-row-297",
+      "row": 297,
+      "speaker": "F1",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "b900c1b4a6825a78f5737015350849be6e0eccd759306640c9db1f94167bffd4",
+      "label": "fearful",
+      "logits": [
+        -1.6639434099197388,
+        -2.99446177482605,
+        -0.5713502168655396,
+        4.4485883712768555,
+        0.4996366500854492,
+        0.5258191227912903,
+        -1.7779043912887573
+      ],
+      "inferenceMs": 2161.2999999998137,
+      "originalSeconds": 11.6660625,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-356",
+      "row": 356,
+      "speaker": "M2",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "3bfc7446139a4a7ba61eb02d4fa69681199ebbbff2bf7fed17f5603254a15618",
+      "label": "happy",
+      "logits": [
+        0.33547937870025635,
+        -2.4942004680633545,
+        -0.9962555170059204,
+        1.5469231605529785,
+        4.949198246002197,
+        -3.293297290802002,
+        -1.1803535223007202
+      ],
+      "inferenceMs": 2001.4000000003725,
+      "originalSeconds": 9.186,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-442",
+      "row": 442,
+      "speaker": "M2",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "aab003326e3e5b563fecf50bfead0d69846aad4d39e4afc2aa2aa73ce6f88601",
+      "label": "happy",
+      "logits": [
+        -1.2711721658706665,
+        -2.300736665725708,
+        -1.3902230262756348,
+        0.10359475016593933,
+        3.594763994216919,
+        -2.38401198387146,
+        3.0281100273132324
+      ],
+      "inferenceMs": 2067.6999999997206,
+      "originalSeconds": 7.6866875,
+      "windowSeconds": 3,
+      "match": true
+    },
+    {
+      "id": "jvnv-row-516",
+      "row": 516,
+      "speaker": "M2",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "f4c3f857cdaaca748f9250bbf6290529963be546aca2abf025d56a28bbaa0085",
+      "label": "fearful",
+      "logits": [
+        -2.657003402709961,
+        -2.3010010719299316,
+        0.05840473249554634,
+        4.1732683181762695,
+        -1.0640171766281128,
+        2.7193496227264404,
+        -2.4574360847473145
+      ],
+      "inferenceMs": 2081.7999999998137,
+      "originalSeconds": 14.957125,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-582",
+      "row": 582,
+      "speaker": "M2",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "57f99fdda00c8ce094f20f87a7bec3b9ea64975d74ced4cba0f045e979ab350e",
+      "label": "happy",
+      "logits": [
+        -0.6810187697410583,
+        -2.1755738258361816,
+        -1.3497493267059326,
+        0.554652988910675,
+        5.016596794128418,
+        -3.206446409225464,
+        0.8439702987670898
+      ],
+      "inferenceMs": 2001.1000000000931,
+      "originalSeconds": 7.1305625,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-647",
+      "row": 647,
+      "speaker": "M2",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "00c7c7a1fa07157c805224fb2edd97807794c13d2ca3dd8fa3bdfc97da5c3ef7",
+      "label": "happy",
+      "logits": [
+        -1.4844635725021362,
+        -2.715855360031128,
+        -1.1297398805618286,
+        1.415753960609436,
+        2.547024726867676,
+        -1.5258699655532837,
+        2.0841054916381836
+      ],
+      "inferenceMs": 1996.4000000003725,
+      "originalSeconds": 6.2101875,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-716",
+      "row": 716,
+      "speaker": "M2",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "d568a10766179399d08623734215283896e4eb7d8bc1339854ab39d8f821c3e6",
+      "label": "surprised",
+      "logits": [
+        -0.9766166806221008,
+        -3.1555402278900146,
+        0.34632208943367004,
+        0.8552622199058533,
+        1.3202934265136719,
+        -1.0573850870132446,
+        2.2115638256073
+      ],
+      "inferenceMs": 1988.7999999998137,
+      "originalSeconds": 6.4801875,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-782",
+      "row": 782,
+      "speaker": "F2",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "2206550ef75df098600864b65714f7cd570a933391c1feca21a52c1beec111e2",
+      "label": "fearful",
+      "logits": [
+        -0.5261557698249817,
+        -3.1343297958374023,
+        -0.6941453218460083,
+        4.55224084854126,
+        0.7409408092498779,
+        -0.20816649496555328,
+        -2.067049980163574
+      ],
+      "inferenceMs": 2067,
+      "originalSeconds": 8.4870625,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-868",
+      "row": 868,
+      "speaker": "F2",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "9d0e95d10defcb726056b1013dd762462fc321699cd362764ccfb32a5f023527",
+      "label": "happy",
+      "logits": [
+        -1.6646167039871216,
+        -1.5648162364959717,
+        -1.4910147190093994,
+        1.44917893409729,
+        4.873386859893799,
+        -2.436872959136963,
+        -0.6558676958084106
+      ],
+      "inferenceMs": 2089.5,
+      "originalSeconds": 10.25825,
+      "windowSeconds": 3,
+      "match": true
+    },
+    {
+      "id": "jvnv-row-958",
+      "row": 958,
+      "speaker": "F2",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "ebb4493086d619ebd906718feb3a0d6cb916bcd3f7b7e301790e9fcf4609c3b0",
+      "label": "fearful",
+      "logits": [
+        -2.3987250328063965,
+        -2.2225852012634277,
+        -0.5190993547439575,
+        4.560194492340088,
+        -0.9170307517051697,
+        2.372957944869995,
+        -2.4014406204223633
+      ],
+      "inferenceMs": 2092.100000000093,
+      "originalSeconds": 9.7400625,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-1031",
+      "row": 1031,
+      "speaker": "F2",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "be4df208d2622098cf9b100068e439cc4a68d6f2c32571f10ea7b22072f91356",
+      "label": "happy",
+      "logits": [
+        -0.4015423357486725,
+        -0.891433835029602,
+        -1.1829891204833984,
+        0.06022617965936661,
+        5.438180923461914,
+        -3.3076319694519043,
+        -0.7593938112258911
+      ],
+      "inferenceMs": 2025.2000000001863,
+      "originalSeconds": 7.3890625,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-1107",
+      "row": 1107,
+      "speaker": "F2",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "5cfcaff81a4894cf42518ea7cceb231c827bb6e45e6fe95c88a497ebe8c5d46a",
+      "label": "fearful",
+      "logits": [
+        -1.9411386251449585,
+        -1.895125389099121,
+        -1.8074742555618286,
+        4.654235363006592,
+        0.877581775188446,
+        0.30161020159721375,
+        -1.7881097793579102
+      ],
+      "inferenceMs": 1984.2000000001863,
+      "originalSeconds": 7.54575,
+      "windowSeconds": 3,
+      "match": true
+    },
+    {
+      "id": "jvnv-row-1185",
+      "row": 1185,
+      "speaker": "F2",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "2027d7388cc42d3e4b3f45a0f4bb57f0a2f7f063d14da26ebdd86c3537c56669",
+      "label": "happy",
+      "logits": [
+        -1.345883846282959,
+        -0.706890881061554,
+        -1.463631510734558,
+        0.40749651193618774,
+        5.231810092926025,
+        -2.774096965789795,
+        -0.6298742294311523
+      ],
+      "inferenceMs": 1981.7999999998137,
+      "originalSeconds": 10.7341875,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-1259",
+      "row": 1259,
+      "speaker": "M1",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "56bdce5bb490a54da512d9a569de341212a2bd866194335593bdb03572b82eaa",
+      "label": "fearful",
+      "logits": [
+        0.23314738273620605,
+        -3.339869737625122,
+        0.8390141129493713,
+        1.8341538906097412,
+        1.0258444547653198,
+        -0.9668232202529907,
+        -0.16930656135082245
+      ],
+      "inferenceMs": 2018.2999999998137,
+      "originalSeconds": 7.8668125,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-1326",
+      "row": 1326,
+      "speaker": "M1",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "4dc99cc2b84735fe387b3c5fc46926bdbd668cd14e47d7d0476645738d2930b3",
+      "label": "happy",
+      "logits": [
+        -0.36226901412010193,
+        -1.1013661623001099,
+        -1.2884920835494995,
+        0.04553943872451782,
+        5.471047401428223,
+        -3.4156436920166016,
+        -0.3449234068393707
+      ],
+      "inferenceMs": 2013.5,
+      "originalSeconds": 9.1891875,
+      "windowSeconds": 3,
+      "match": true
+    },
+    {
+      "id": "jvnv-row-1384",
+      "row": 1384,
+      "speaker": "M1",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "2bf06ee7a0d6a9565bb153994f03dc99296f84b4348186c9113d0207ac46a829",
+      "label": "fearful",
+      "logits": [
+        -2.3613975048065186,
+        -2.1578757762908936,
+        -1.586153507232666,
+        2.478240966796875,
+        2.18890118598938,
+        -0.6975407600402832,
+        0.9036606550216675
+      ],
+      "inferenceMs": 1999.2000000001863,
+      "originalSeconds": 13.880875,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-1443",
+      "row": 1443,
+      "speaker": "M1",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "485f4079279fd00e9726574c2cb734456eb3f7afbe9fbdca9722a3b6526da68b",
+      "label": "surprised",
+      "logits": [
+        -0.5939524173736572,
+        -3.350482702255249,
+        1.5419282913208008,
+        -0.17152751982212067,
+        0.4619172513484955,
+        -0.9348276853561401,
+        3.0170016288757324
+      ],
+      "inferenceMs": 1990.3999999999069,
+      "originalSeconds": 7.5845625,
+      "windowSeconds": 3,
+      "match": false
+    },
+    {
+      "id": "jvnv-row-1497",
+      "row": 1497,
+      "speaker": "M1",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "ea8321439c3aa504cc4e2b316c695504d47ee1abb0b915c5f50a304161c8df50",
+      "label": "fearful",
+      "logits": [
+        -1.4584003686904907,
+        -2.948697566986084,
+        -1.0877432823181152,
+        4.571188926696777,
+        1.0352754592895508,
+        -0.03321288526058197,
+        -1.6051045656204224
+      ],
+      "inferenceMs": 2096.899999999907,
+      "originalSeconds": 7.590875,
+      "windowSeconds": 3,
+      "match": true
+    },
+    {
+      "id": "jvnv-row-1556",
+      "row": 1556,
+      "speaker": "M1",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "3afa226db6fc2f1e565a03581e3f91fc8e5246df02eee3bafe9269b6f06a0c30",
+      "label": "fearful",
+      "logits": [
+        -1.353326439857483,
+        -2.9584412574768066,
+        -0.0430816188454628,
+        4.210514545440674,
+        0.5588898062705994,
+        0.5390013456344604,
+        -2.462923288345337
+      ],
+      "inferenceMs": 2621.7999999998137,
+      "originalSeconds": 7.902625,
+      "windowSeconds": 3,
+      "match": false
+    }
+  ],
+  "matches": 7,
+  "total": 24,
+  "privacy": {
+    "pageNetwork": "offline during all inference",
+    "requestsDuringInference": 0,
+    "initialRequests": 8,
+    "blockedRequests": 0,
+    "serverGets": 8,
+    "serverRejected": 0,
+    "storage": {
+      "attempts": [],
+      "local": 0,
+      "session": 0,
+      "cookie": "",
+      "databases": [],
+      "caches": [],
+      "workers": 0
+    },
+    "microphone": "denied by Permissions-Policy; not requested",
+    "audioFilesWritten": 0
+  },
+  "result": "TECHNICAL_CHECKS_PASS",
+  "caveats": [
+    "Small preselected sample; not a representative accuracy estimate",
+    "Does not validate unseen microphones, rooms, quiet speech, or iPad",
+    "Dataset intended emotion is not an objective measurement of an internal feeling",
+    "Model card says neutral; config index 1 actually says calm",
+    "No native/PyTorch numerical equivalence verification yet",
+    "No claim of a comprehensive browser/OS/library security audit"
+  ]
+}

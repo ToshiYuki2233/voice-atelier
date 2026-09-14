@@ -1,0 +1,24 @@
+{
+  "name": "voice-atelier",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node scripts/server.mjs",
+    "start:https": "node scripts/server.mjs --https",
+    "test": "node --test",
+    "check": "node --check public/app.js && node --check public/audio-session.js && node --check public/spectrum.js && node --check public/expression-model.js && node --check public/analysis.js && node --check public/sw.js && node --check scripts/server.mjs && node --check scripts/browser-smoke.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs",
+    "lab:prepare": "node scripts/emotion-lab/prepare.mjs",
+    "lab:controls": "node scripts/emotion-lab/run.mjs --synthetic-only",
+    "lab:emotion": "node scripts/emotion-lab/run.mjs",
+    "lab:rule": "node scripts/emotion-lab/rule-run.mjs",
+    "lab:rule-controls": "node scripts/emotion-lab/rule-run.mjs --synthetic-only"
+  },
+  "devDependencies": {
+    "onnxruntime-web": "1.29.0"
+  }
+}

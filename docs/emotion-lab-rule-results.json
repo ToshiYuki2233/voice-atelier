@@ -1,0 +1,1442 @@
+{
+  "checkedAt": "2026-09-13T07:41:09.801Z",
+  "cpu": "Intel(R) Core(TM) i5-10400 CPU @ 2.90GHz",
+  "node": "v24.14.0",
+  "approach": "Rule-based acoustic axes; no trained weights, no model file, no browser, no ONNX runtime",
+  "scope": "Public Japanese corpus, central 3-second windows, per-speaker normalisation; not iPad validation, not a general accuracy estimate, not an emotion classifier",
+  "dataset": "asahi417/jvnv-emotional-speech-corpus",
+  "datasetRevision": "3b6c3794754e9e514766e898f69604a0f7417218",
+  "selection": "First published row per speaker/emotion pair, fixed before measurement; 4 speakers x 6 emotions; center up to 3 seconds; native sample rate, mono mixdown",
+  "predictionsFixedBeforeRun": [
+    {
+      "id": "P1",
+      "text": "悲しみが、その話者の6件中で勢いが最も低い"
+    },
+    {
+      "id": "P2",
+      "text": "怒りの勢いが悲しみより高い"
+    },
+    {
+      "id": "P3",
+      "text": "怒りの張りが喜びより高い"
+    },
+    {
+      "id": "P4",
+      "text": "怒りの張りが悲しみより高い"
+    },
+    {
+      "id": "P5",
+      "text": "恐れの揺れが平均より高い"
+    },
+    {
+      "id": "P6",
+      "text": "喜びの幅が悲しみより広い"
+    }
+  ],
+  "controls": [
+    {
+      "kind": "silence",
+      "states": [
+        "unavailable"
+      ]
+    },
+    {
+      "kind": "tone",
+      "states": [
+        "warming"
+      ]
+    },
+    {
+      "kind": "noise",
+      "states": [
+        "unavailable"
+      ]
+    }
+  ],
+  "predictions": [
+    {
+      "id": "P1",
+      "text": "悲しみが、その話者の6件中で勢いが最も低い",
+      "held": 2,
+      "speakers": 4,
+      "bySpeaker": [
+        {
+          "speaker": "F1",
+          "held": true
+        },
+        {
+          "speaker": "F2",
+          "held": false
+        },
+        {
+          "speaker": "M1",
+          "held": true
+        },
+        {
+          "speaker": "M2",
+          "held": false
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "text": "怒りの勢いが悲しみより高い",
+      "held": 4,
+      "speakers": 4,
+      "bySpeaker": [
+        {
+          "speaker": "F1",
+          "held": true
+        },
+        {
+          "speaker": "F2",
+          "held": true
+        },
+        {
+          "speaker": "M1",
+          "held": true
+        },
+        {
+          "speaker": "M2",
+          "held": true
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "text": "怒りの張りが喜びより高い",
+      "held": 1,
+      "speakers": 4,
+      "bySpeaker": [
+        {
+          "speaker": "F1",
+          "held": true
+        },
+        {
+          "speaker": "F2",
+          "held": false
+        },
+        {
+          "speaker": "M1",
+          "held": false
+        },
+        {
+          "speaker": "M2",
+          "held": false
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "text": "怒りの張りが悲しみより高い",
+      "held": 2,
+      "speakers": 4,
+      "bySpeaker": [
+        {
+          "speaker": "F1",
+          "held": true
+        },
+        {
+          "speaker": "F2",
+          "held": false
+        },
+        {
+          "speaker": "M1",
+          "held": true
+        },
+        {
+          "speaker": "M2",
+          "held": false
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "text": "恐れの揺れが平均より高い",
+      "held": 4,
+      "speakers": 4,
+      "bySpeaker": [
+        {
+          "speaker": "F1",
+          "held": true
+        },
+        {
+          "speaker": "F2",
+          "held": true
+        },
+        {
+          "speaker": "M1",
+          "held": true
+        },
+        {
+          "speaker": "M2",
+          "held": true
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "text": "喜びの幅が悲しみより広い",
+      "held": 3,
+      "speakers": 4,
+      "bySpeaker": [
+        {
+          "speaker": "F1",
+          "held": true
+        },
+        {
+          "speaker": "F2",
+          "held": true
+        },
+        {
+          "speaker": "M1",
+          "held": false
+        },
+        {
+          "speaker": "M2",
+          "held": true
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "jvnv-row-0",
+      "row": 0,
+      "speaker": "F1",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "0c6aa300d3b0e89d5ee54768739fbcee55c0672aaa6b5281db4050489f314a7b",
+      "measured": {
+        "semitone": 47.22547653373796,
+        "dbfs": -24.90171134257827,
+        "peakRate": 3.5714285714285716,
+        "alphaRatioDb": 10.328741804790024,
+        "hammarbergDb": 21.976862390200804,
+        "jitter": 0.04112374783460119,
+        "shimmer": 0.06288373669415137,
+        "hnrDb": 13.329624876918132,
+        "pitchSpread": 3.362173293639575,
+        "levelSpread": 15.01621924128121
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 18,
+        "neutralButLit": 7,
+        "dark": 5,
+        "switches": 2,
+        "colouredRatio": 0.6,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.5,
+      "audibleRatio": 0.8333333333333334,
+      "voicedRatioAt": {
+        "0.12": 0.5,
+        "0.2": 0.6333333333333333,
+        "0.3": 0.6666666666666666,
+        "0.45": 0.7
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 1.463259803399018,
+        "edge": 0.6483517098593268,
+        "waver": -1.2213628330298978,
+        "spread": -0.6653811336989086
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-67",
+      "row": 67,
+      "speaker": "F1",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "dc23db26aa3e837f1f4cd5e321c3708469ff7d0ecfe1a7674b0d216c467f18a6",
+      "measured": {
+        "semitone": 44.15083882750062,
+        "dbfs": -29.682609692080966,
+        "peakRate": 2.5,
+        "alphaRatioDb": 12.12282987219713,
+        "hammarbergDb": 25.043608623799443,
+        "jitter": 0.06437393012387937,
+        "shimmer": 0.09802288142555084,
+        "hnrDb": 9.617941333808472,
+        "pitchSpread": 7.8868119968671095,
+        "levelSpread": 23.316926248968247
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 20,
+        "neutralButLit": 6,
+        "dark": 4,
+        "switches": 3,
+        "colouredRatio": 0.6666666666666666,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.43333333333333335,
+      "audibleRatio": 0.9,
+      "voicedRatioAt": {
+        "0.12": 0.43333333333333335,
+        "0.2": 0.5,
+        "0.3": 0.6333333333333333,
+        "0.45": 0.7333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.01888100740470002,
+        "edge": -0.18207763462340465,
+        "waver": 0.21051334042830647,
+        "spread": 1.0639293027668337
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-125",
+      "row": 125,
+      "speaker": "F1",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "b5e59d45b2d8ea3e8d267a77cd01602f55f95a06155a85d3f2f701c1974a0f80",
+      "measured": {
+        "semitone": 38.88048960917177,
+        "dbfs": -33.669041670519164,
+        "peakRate": 1.7786561264822134,
+        "alphaRatioDb": 16.077428518159678,
+        "hammarbergDb": 31.620604849701877,
+        "jitter": 0.031748222661994965,
+        "shimmer": 0.10167464800166524,
+        "hnrDb": 10.117175158042457,
+        "pitchSpread": 3.38207109468458,
+        "levelSpread": 10.937281988727307
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 13,
+        "neutralButLit": 6,
+        "dark": 11,
+        "switches": 3,
+        "colouredRatio": 0.43333333333333335,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.36666666666666664,
+      "audibleRatio": 0.6666666666666666,
+      "voicedRatioAt": {
+        "0.12": 0.36666666666666664,
+        "0.2": 0.4666666666666667,
+        "0.3": 0.5,
+        "0.45": 0.5333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -1.3892387513019813,
+        "edge": -1.9848910431561402,
+        "waver": -0.2558735754648868,
+        "spread": -0.9279726577628833
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-184",
+      "row": 184,
+      "speaker": "F1",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "95a026f2a998df4d7d01b9b2d7574dc378a77fe40267c8f313736f5f46c2ae14",
+      "measured": {
+        "semitone": 49.953422211150894,
+        "dbfs": -28.586186461753055,
+        "peakRate": 2.2222222222222223,
+        "alphaRatioDb": 7.942780078764034,
+        "hammarbergDb": 22.04315043422426,
+        "jitter": 0.03998354516731705,
+        "shimmer": 0.08005245220420701,
+        "hnrDb": 7.798976921797474,
+        "pitchSpread": 7.246319223239112,
+        "levelSpread": 33.59209203684382
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 20,
+        "neutralButLit": 5,
+        "dark": 5,
+        "switches": 2,
+        "colouredRatio": 0.6666666666666666,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.23333333333333334,
+      "audibleRatio": 0.8333333333333334,
+      "voicedRatioAt": {
+        "0.12": 0.23333333333333334,
+        "0.2": 0.3333333333333333,
+        "0.3": 0.4,
+        "0.45": 0.5666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.4540940320339348,
+        "edge": 1.1259389925613195,
+        "waver": -0.002182352368704269,
+        "spread": 1.5708879629863843
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-238",
+      "row": 238,
+      "speaker": "F1",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "4978d2d044cdf52b58fce76fb5db81b630bd1ff66f67cd904ab8777c524f9504",
+      "measured": {
+        "semitone": 43.658787397859655,
+        "dbfs": -30.451639535618412,
+        "peakRate": 2.817460317460317,
+        "alphaRatioDb": 11.955335496293912,
+        "hammarbergDb": 23.776789131734333,
+        "jitter": 0.10907290121001371,
+        "shimmer": 0.11829210375926824,
+        "hnrDb": 12.354930638916205,
+        "pitchSpread": 3.6843750972723512,
+        "levelSpread": 13.051554152524208
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 17,
+        "neutralButLit": 7,
+        "dark": 6,
+        "switches": 3,
+        "colouredRatio": 0.5666666666666667,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.5,
+      "audibleRatio": 0.8,
+      "voicedRatioAt": {
+        "0.12": 0.5,
+        "0.2": 0.6333333333333333,
+        "0.3": 0.6333333333333333,
+        "0.45": 0.6666666666666666
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.038206027255464535,
+        "edge": 0.0437308666070034,
+        "waver": 0.5470391940785265,
+        "spread": -0.7100328984264537
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-297",
+      "row": 297,
+      "speaker": "F1",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "b900c1b4a6825a78f5737015350849be6e0eccd759306640c9db1f94167bffd4",
+      "measured": {
+        "semitone": 40.276162253705195,
+        "dbfs": -32.42575054709023,
+        "peakRate": 2.727272727272727,
+        "alphaRatioDb": 10.901098982955478,
+        "hammarbergDb": 23.183213445834923,
+        "jitter": 0.06452533215290336,
+        "shimmer": 0.1439540476275709,
+        "hnrDb": 10.056016416843123,
+        "pitchSpread": 3.7504072543337728,
+        "levelSpread": 18.554898409561588
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 18,
+        "neutralButLit": 7,
+        "dark": 5,
+        "switches": 3,
+        "colouredRatio": 0.6,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.36666666666666664,
+      "audibleRatio": 0.8333333333333334,
+      "voicedRatioAt": {
+        "0.12": 0.36666666666666664,
+        "0.2": 0.5666666666666667,
+        "0.3": 0.6333333333333333,
+        "0.45": 0.7333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.5474401039817276,
+        "edge": 0.34894710875189217,
+        "waver": 0.7218662263566555,
+        "spread": -0.3314305758649724
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-356",
+      "row": 356,
+      "speaker": "M2",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "3bfc7446139a4a7ba61eb02d4fa69681199ebbbff2bf7fed17f5603254a15618",
+      "measured": {
+        "semitone": 34.438625582605646,
+        "dbfs": -25.98206976597868,
+        "peakRate": 1.7647058823529411,
+        "alphaRatioDb": 12.923047328318395,
+        "hammarbergDb": 17.827929461389967,
+        "jitter": 0.09900281257990283,
+        "shimmer": 0.1704689517781114,
+        "hnrDb": 10.29876994125408,
+        "pitchSpread": 0.7097534842193625,
+        "levelSpread": 14.311952747868393
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 14,
+        "neutralButLit": 7,
+        "dark": 9,
+        "switches": 5,
+        "colouredRatio": 0.4666666666666667,
+        "switchesPerSecond": 1.6666666666666667
+      },
+      "voicedRatio": 0.23333333333333334,
+      "audibleRatio": 0.8666666666666667,
+      "voicedRatioAt": {
+        "0.12": 0.23333333333333334,
+        "0.2": 0.36666666666666664,
+        "0.3": 0.5333333333333333,
+        "0.45": 0.6666666666666666
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.23593881041992604,
+        "edge": 0.1148628374058225,
+        "waver": 0.9684914942906535,
+        "spread": -0.5069387835885528
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-442",
+      "row": 442,
+      "speaker": "M2",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "aab003326e3e5b563fecf50bfead0d69846aad4d39e4afc2aa2aa73ce6f88601",
+      "measured": {
+        "semitone": 33.96466097291926,
+        "dbfs": -27.984332988772735,
+        "peakRate": 2.5,
+        "alphaRatioDb": 9.573401423273136,
+        "hammarbergDb": 15.36031160455408,
+        "jitter": 0.06624024852696227,
+        "shimmer": 0.14595393974744036,
+        "hnrDb": 10.176455881707085,
+        "pitchSpread": 3.7715141182311953,
+        "levelSpread": 11.640272452672422
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 16,
+        "neutralButLit": 6,
+        "dark": 8,
+        "switches": 2,
+        "colouredRatio": 0.5333333333333333,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.13333333333333333,
+      "audibleRatio": 0.9333333333333333,
+      "voicedRatioAt": {
+        "0.12": 0.13333333333333333,
+        "0.2": 0.3,
+        "0.3": 0.5333333333333333,
+        "0.45": 0.7333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.08764592399695309,
+        "edge": 1.0133748821709285,
+        "waver": 0.5599836708731355,
+        "spread": -0.21743007931710628
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-516",
+      "row": 516,
+      "speaker": "M2",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "f4c3f857cdaaca748f9250bbf6290529963be546aca2abf025d56a28bbaa0085",
+      "measured": {
+        "semitone": 34.91114970544183,
+        "dbfs": -33.80524445187832,
+        "peakRate": 2.2727272727272725,
+        "alphaRatioDb": 9.880215061680468,
+        "hammarbergDb": 13.056426856228219,
+        "jitter": 0.015899210362878183,
+        "shimmer": 0.05381471204799039,
+        "hnrDb": 11.287001770245347,
+        "pitchSpread": null,
+        "levelSpread": 8.774199357367372
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 15,
+        "neutralButLit": 0,
+        "dark": 15,
+        "switches": 2,
+        "colouredRatio": 0.5,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.06666666666666667,
+      "audibleRatio": 0.7,
+      "voicedRatioAt": {
+        "0.12": 0.06666666666666667,
+        "0.2": 0.2,
+        "0.3": 0.4,
+        "0.45": 0.5666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.49783231338950107,
+        "edge": 1.1195173626381232,
+        "waver": -0.7250387014346199,
+        "spread": -0.5552964028580234
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 0.5
+      }
+    },
+    {
+      "id": "jvnv-row-582",
+      "row": 582,
+      "speaker": "M2",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "57f99fdda00c8ce094f20f87a7bec3b9ea64975d74ced4cba0f045e979ab350e",
+      "measured": {
+        "semitone": 36.007012112329335,
+        "dbfs": -20.672967162915484,
+        "peakRate": 3.514705882352941,
+        "alphaRatioDb": 16.278510774125003,
+        "hammarbergDb": 24.329592353915913,
+        "jitter": 0.13637187438512033,
+        "shimmer": 0.10158435369252143,
+        "hnrDb": 12.620517872480665,
+        "pitchSpread": 2.48373902252915,
+        "levelSpread": 14.943963629873743
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 17,
+        "neutralButLit": 1,
+        "dark": 12,
+        "switches": 2,
+        "colouredRatio": 0.5666666666666667,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.16666666666666666,
+      "audibleRatio": 0.8,
+      "voicedRatioAt": {
+        "0.12": 0.16666666666666666,
+        "0.2": 0.3333333333333333,
+        "0.3": 0.36666666666666664,
+        "0.45": 0.5333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 1.5083515738229192,
+        "edge": -1.085369887618995,
+        "waver": 0.2903645135354239,
+        "spread": -0.09488015385202689
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-647",
+      "row": 647,
+      "speaker": "M2",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "00c7c7a1fa07157c805224fb2edd97807794c13d2ca3dd8fa3bdfc97da5c3ef7",
+      "measured": {
+        "semitone": 37.1287033526937,
+        "dbfs": -26.772039218269306,
+        "peakRate": 2,
+        "alphaRatioDb": 11.6691692646533,
+        "hammarbergDb": 21.2546654551484,
+        "jitter": 0.05685467889406716,
+        "shimmer": 0.12089607155967116,
+        "hnrDb": 9.853628203333983,
+        "pitchSpread": null,
+        "levelSpread": 22.472896944649083
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 19,
+        "neutralButLit": 6,
+        "dark": 5,
+        "switches": 3,
+        "colouredRatio": 0.6333333333333333,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.2,
+      "audibleRatio": 0.8666666666666667,
+      "voicedRatioAt": {
+        "0.12": 0.2,
+        "0.2": 0.4666666666666667,
+        "0.3": 0.6333333333333333,
+        "0.45": 0.7666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.3904324447833236,
+        "edge": 0.12715763028605187,
+        "waver": 0.3651784966236374,
+        "spread": 0.9799567229122927
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 0.5
+      }
+    },
+    {
+      "id": "jvnv-row-716",
+      "row": 716,
+      "speaker": "M2",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "d568a10766179399d08623734215283896e4eb7d8bc1339854ab39d8f821c3e6",
+      "measured": {
+        "semitone": 32.025239637705006,
+        "dbfs": -30.462467870986814,
+        "peakRate": 1.8181818181818181,
+        "alphaRatioDb": 14.060904515441196,
+        "hammarbergDb": 33.423135084115835,
+        "jitter": 0.013171225937183385,
+        "shimmer": 0.047797051256240446,
+        "hnrDb": 14.717118469015295,
+        "pitchSpread": 7.77465908267094,
+        "levelSpread": 10.230575424323447
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 21,
+        "neutralButLit": 0,
+        "dark": 9,
+        "switches": 2,
+        "colouredRatio": 0.7,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.23333333333333334,
+      "audibleRatio": 0.8,
+      "voicedRatioAt": {
+        "0.12": 0.23333333333333334,
+        "0.2": 0.3333333333333333,
+        "0.3": 0.5,
+        "0.45": 0.6333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -1.0773669707998579,
+        "edge": -1.2895428248819323,
+        "waver": -1.4589794738882305,
+        "spread": 0.3945886967034157
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-782",
+      "row": 782,
+      "speaker": "F2",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "2206550ef75df098600864b65714f7cd570a933391c1feca21a52c1beec111e2",
+      "measured": {
+        "semitone": 44.58177978205687,
+        "dbfs": -33.90399930951886,
+        "peakRate": 2.142857142857143,
+        "alphaRatioDb": 7.212377800693289,
+        "hammarbergDb": 23.318659423970416,
+        "jitter": 0.04228401613245595,
+        "shimmer": 0.06995973882824913,
+        "hnrDb": 11.644800347212351,
+        "pitchSpread": 5.6336338779276005,
+        "levelSpread": 29.060727100603604
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 17,
+        "neutralButLit": 6,
+        "dark": 7,
+        "switches": 3,
+        "colouredRatio": 0.5666666666666667,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.5,
+      "audibleRatio": 0.7666666666666667,
+      "voicedRatioAt": {
+        "0.12": 0.5,
+        "0.2": 0.5666666666666667,
+        "0.3": 0.6,
+        "0.45": 0.6666666666666666
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.11230260972968253,
+        "edge": 1.1268357864856144,
+        "waver": -0.7026829531501702,
+        "spread": 1.1980577767292626
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-868",
+      "row": 868,
+      "speaker": "F2",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "9d0e95d10defcb726056b1013dd762462fc321699cd362764ccfb32a5f023527",
+      "measured": {
+        "semitone": 42.46466623190561,
+        "dbfs": -36.01928606015711,
+        "peakRate": 2,
+        "alphaRatioDb": 15.264825604886534,
+        "hammarbergDb": 21.25352093690595,
+        "jitter": 0.04704303767047844,
+        "shimmer": 0.08678290404564164,
+        "hnrDb": 10.613197362644495,
+        "pitchSpread": 6.178848628994633,
+        "levelSpread": 30.769271733509207
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 17,
+        "neutralButLit": 6,
+        "dark": 7,
+        "switches": 7,
+        "colouredRatio": 0.5666666666666667,
+        "switchesPerSecond": 2.3333333333333335
+      },
+      "voicedRatio": 0.3333333333333333,
+      "audibleRatio": 0.8,
+      "voicedRatioAt": {
+        "0.12": 0.3333333333333333,
+        "0.2": 0.6,
+        "0.3": 0.7,
+        "0.45": 0.7666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.4092059585241274,
+        "edge": 0.4549694079763718,
+        "waver": 0.2727795448927276,
+        "spread": 1.4842743110247982
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-958",
+      "row": 958,
+      "speaker": "F2",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "ebb4493086d619ebd906718feb3a0d6cb916bcd3f7b7e301790e9fcf4609c3b0",
+      "measured": {
+        "semitone": 39.882357774782086,
+        "dbfs": -36.73738324781667,
+        "peakRate": 3.5294117647058822,
+        "alphaRatioDb": 14.577501532236745,
+        "hammarbergDb": 23.99609096988244,
+        "jitter": 0.03902699336797631,
+        "shimmer": 0.08714227525664735,
+        "hnrDb": 12.663365305949545,
+        "pitchSpread": 3.239459394237741,
+        "levelSpread": 10.08184072563719
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 20,
+        "neutralButLit": 6,
+        "dark": 4,
+        "switches": 4,
+        "colouredRatio": 0.6666666666666666,
+        "switchesPerSecond": 1.3333333333333333
+      },
+      "voicedRatio": 0.26666666666666666,
+      "audibleRatio": 0.9333333333333333,
+      "voicedRatioAt": {
+        "0.12": 0.26666666666666666,
+        "0.2": 0.4666666666666667,
+        "0.3": 0.6333333333333333,
+        "0.45": 0.7666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.11319493369176532,
+        "edge": 0.2666968472977106,
+        "waver": -0.4776747418661577,
+        "spread": -0.6760430042261469
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1031",
+      "row": 1031,
+      "speaker": "F2",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "be4df208d2622098cf9b100068e439cc4a68d6f2c32571f10ea7b22072f91356",
+      "measured": {
+        "semitone": 40.193194155280764,
+        "dbfs": -26.917202383927652,
+        "peakRate": 2,
+        "alphaRatioDb": 20.44089089660465,
+        "hammarbergDb": 32.559859924988686,
+        "jitter": 0.0641070467993545,
+        "shimmer": 0.08485945412383294,
+        "hnrDb": 11.642255546854106,
+        "pitchSpread": 2.183332293512599,
+        "levelSpread": 11.807085625567481
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 18,
+        "neutralButLit": 6,
+        "dark": 6,
+        "switches": 3,
+        "colouredRatio": 0.6,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.16666666666666666,
+      "audibleRatio": 0.8333333333333334,
+      "voicedRatioAt": {
+        "0.12": 0.16666666666666666,
+        "0.2": 0.3,
+        "0.3": 0.43333333333333335,
+        "0.45": 0.5666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.22477535704787766,
+        "edge": -1.186082697915471,
+        "waver": 0.19663513356870832,
+        "spread": -0.9596685289581857
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1107",
+      "row": 1107,
+      "speaker": "F2",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "5cfcaff81a4894cf42518ea7cceb231c827bb6e45e6fe95c88a497ebe8c5d46a",
+      "measured": {
+        "semitone": 46.60295613895657,
+        "dbfs": -33.02676505485013,
+        "peakRate": 2.1764705882352944,
+        "alphaRatioDb": 12.110410625775486,
+        "hammarbergDb": 22.12216451579999,
+        "jitter": 0.09390468564582673,
+        "shimmer": 0.1025193736927329,
+        "hnrDb": 14.027717366260518,
+        "pitchSpread": 3.2543190004010896,
+        "levelSpread": 11.191176174476155
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 19,
+        "neutralButLit": 7,
+        "dark": 4,
+        "switches": 3,
+        "colouredRatio": 0.6333333333333333,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.6,
+      "audibleRatio": 0.8666666666666667,
+      "voicedRatioAt": {
+        "0.12": 0.6,
+        "0.2": 0.7,
+        "0.3": 0.7,
+        "0.45": 0.7666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.44016747489604463,
+        "edge": 0.7124521054528081,
+        "waver": 0.6085410476064469,
+        "spread": -0.6110809586472885
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1185",
+      "row": 1185,
+      "speaker": "F2",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "2027d7388cc42d3e4b3f45a0f4bb57f0a2f7f063d14da26ebdd86c3537c56669",
+      "measured": {
+        "semitone": 37.656226886453126,
+        "dbfs": -29.832146862418995,
+        "peakRate": 1.751918158567775,
+        "alphaRatioDb": 20.458506242295954,
+        "hammarbergDb": 34.51249458794656,
+        "jitter": 0.06712640210597035,
+        "shimmer": 0.09226590040119023,
+        "hnrDb": 12.970760320220695,
+        "pitchSpread": 4.177047051500843,
+        "levelSpread": 8.340364116129798
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 23,
+        "neutralButLit": 7,
+        "dark": 0,
+        "switches": 1,
+        "colouredRatio": 0.7666666666666667,
+        "switchesPerSecond": 0.3333333333333333
+      },
+      "voicedRatio": 0.5666666666666667,
+      "audibleRatio": 1,
+      "voicedRatioAt": {
+        "0.12": 0.5666666666666667,
+        "0.2": 0.8333333333333334,
+        "0.3": 0.8666666666666667,
+        "0.45": 0.9666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.4812344168412426,
+        "edge": -1.3748714492970344,
+        "waver": 0.10240196894844034,
+        "spread": -0.4355395959224411
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1259",
+      "row": 1259,
+      "speaker": "M1",
+      "expected": "surprised",
+      "session": "free",
+      "sha256": "56bdce5bb490a54da512d9a569de341212a2bd866194335593bdb03572b82eaa",
+      "measured": {
+        "semitone": 41.7693453999448,
+        "dbfs": -25.641342233344304,
+        "peakRate": 1.1437908496732025,
+        "alphaRatioDb": 12.959545738431164,
+        "hammarbergDb": 19.787714867472175,
+        "jitter": 0.06345111336421794,
+        "shimmer": 0.07355851405123214,
+        "hnrDb": 12.184881623202884,
+        "pitchSpread": 2.0652949774472376,
+        "levelSpread": 9.250007864347452
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 5,
+        "neutralButLit": 6,
+        "dark": 19,
+        "switches": 4,
+        "colouredRatio": 0.16666666666666666,
+        "switchesPerSecond": 1.3333333333333333
+      },
+      "voicedRatio": 0.16666666666666666,
+      "audibleRatio": 0.4,
+      "voicedRatioAt": {
+        "0.12": 0.16666666666666666,
+        "0.2": 0.23333333333333334,
+        "0.3": 0.3,
+        "0.45": 0.3333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.48736934128120346,
+        "edge": 0.019611667702014262,
+        "waver": -0.6517262322559464,
+        "spread": -1.023327579948647
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1326",
+      "row": 1326,
+      "speaker": "M1",
+      "expected": "happy",
+      "session": "free",
+      "sha256": "4dc99cc2b84735fe387b3c5fc46926bdbd668cd14e47d7d0476645738d2930b3",
+      "measured": {
+        "semitone": 33.58198394722865,
+        "dbfs": -30.96584837618184,
+        "peakRate": 2.9289215686274512,
+        "alphaRatioDb": 12.7783408924212,
+        "hammarbergDb": 18.013016271536877,
+        "jitter": 0.03598736053678708,
+        "shimmer": 0.1165642787194625,
+        "hnrDb": 10.374227135320755,
+        "pitchSpread": 2.776296772841974,
+        "levelSpread": 13.997676039852475
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 19,
+        "neutralButLit": 2,
+        "dark": 9,
+        "switches": 2,
+        "colouredRatio": 0.6333333333333333,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.3,
+      "audibleRatio": 0.8666666666666667,
+      "voicedRatioAt": {
+        "0.12": 0.3,
+        "0.2": 0.4666666666666667,
+        "0.3": 0.5666666666666667,
+        "0.45": 0.6666666666666666
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.16031242970878493,
+        "edge": 0.3008619600882899,
+        "waver": -0.11778559896973136,
+        "spread": -0.36021463441859825
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1384",
+      "row": 1384,
+      "speaker": "M1",
+      "expected": "sad",
+      "session": "free",
+      "sha256": "2bf06ee7a0d6a9565bb153994f03dc99296f84b4348186c9113d0207ac46a829",
+      "measured": {
+        "semitone": 31.944249024692247,
+        "dbfs": -34.544407693372904,
+        "peakRate": 2,
+        "alphaRatioDb": 13.447656974895242,
+        "hammarbergDb": 27.595458064662218,
+        "jitter": 0.1157755163002876,
+        "shimmer": 0.21788569849611034,
+        "hnrDb": 10.251100540901147,
+        "pitchSpread": 3.1489552170135475,
+        "levelSpread": 33.0694550424077
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 8,
+        "neutralButLit": 3,
+        "dark": 19,
+        "switches": 1,
+        "colouredRatio": 0.26666666666666666,
+        "switchesPerSecond": 0.3333333333333333
+      },
+      "voicedRatio": 0.2,
+      "audibleRatio": 0.5333333333333333,
+      "voicedRatioAt": {
+        "0.12": 0.2,
+        "0.2": 0.4,
+        "0.3": 0.4666666666666667,
+        "0.45": 0.4666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.934512943829926,
+        "edge": -1.1288004246173782,
+        "waver": 1.4773726384090888,
+        "spread": 0.9479551746785061
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1443",
+      "row": 1443,
+      "speaker": "M1",
+      "expected": "angry",
+      "session": "free",
+      "sha256": "485f4079279fd00e9726574c2cb734456eb3f7afbe9fbdca9722a3b6526da68b",
+      "measured": {
+        "semitone": 34.586117885737664,
+        "dbfs": -29.34172042651734,
+        "peakRate": 2.3303167420814477,
+        "alphaRatioDb": 13.730207476669438,
+        "hammarbergDb": 20.317020084819735,
+        "jitter": 0.03668504419357661,
+        "shimmer": 0.047416966450812524,
+        "hnrDb": 11.252213948067391,
+        "pitchSpread": 3.2910276452380316,
+        "levelSpread": 15.951169882692689
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 17,
+        "neutralButLit": 2,
+        "dark": 11,
+        "switches": 2,
+        "colouredRatio": 0.5666666666666667,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.2,
+      "audibleRatio": 0.7666666666666667,
+      "voicedRatioAt": {
+        "0.12": 0.2,
+        "0.2": 0.36666666666666664,
+        "0.3": 0.4,
+        "0.45": 0.5666666666666667
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.07507485241527512,
+        "edge": -0.2704771487841937,
+        "waver": -0.8210637937635249,
+        "spread": 0.033908463131685024
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1497",
+      "row": 1497,
+      "speaker": "M1",
+      "expected": "fearful",
+      "session": "free",
+      "sha256": "ea8321439c3aa504cc4e2b316c695504d47ee1abb0b915c5f50a304161c8df50",
+      "measured": {
+        "semitone": 38.46566739085911,
+        "dbfs": -31.000461851738073,
+        "peakRate": 1.6,
+        "alphaRatioDb": 15.125156745329203,
+        "hammarbergDb": 19.91321091348497,
+        "jitter": 0.06257199334461525,
+        "shimmer": 0.08296486741407363,
+        "hnrDb": 9.521715202178175,
+        "pitchSpread": 4.849485341949318,
+        "levelSpread": 17.74293820701262
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 18,
+        "neutralButLit": 4,
+        "dark": 8,
+        "switches": 3,
+        "colouredRatio": 0.6,
+        "switchesPerSecond": 1
+      },
+      "voicedRatio": 0.26666666666666666,
+      "audibleRatio": 0.8333333333333334,
+      "voicedRatioAt": {
+        "0.12": 0.26666666666666666,
+        "0.2": 0.43333333333333335,
+        "0.3": 0.5333333333333333,
+        "0.45": 0.6333333333333333
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": -0.13685037037148418,
+        "edge": -0.6197413411638055,
+        "waver": 0.2640558611330419,
+        "spread": 0.9883793610827638
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 1
+      }
+    },
+    {
+      "id": "jvnv-row-1556",
+      "row": 1556,
+      "speaker": "M1",
+      "expected": "disgust",
+      "session": "free",
+      "sha256": "3afa226db6fc2f1e565a03581e3f91fc8e5246df02eee3bafe9269b6f06a0c30",
+      "measured": {
+        "semitone": 35.72665519597576,
+        "dbfs": -25.424885796719767,
+        "peakRate": 1.9090909090909092,
+        "alphaRatioDb": 9.413205604093324,
+        "hammarbergDb": 14.68707623703955,
+        "jitter": 0.09142857142857143,
+        "shimmer": 0.10756091115172935,
+        "hnrDb": 12.292264051530147,
+        "pitchSpread": null,
+        "levelSpread": 5.848140294902304
+      },
+      "frames": 30,
+      "light": {
+        "coloured": 5,
+        "neutralButLit": 2,
+        "dark": 23,
+        "switches": 2,
+        "colouredRatio": 0.16666666666666666,
+        "switchesPerSecond": 0.6666666666666666
+      },
+      "voicedRatio": 0.1,
+      "audibleRatio": 0.5,
+      "voicedRatioAt": {
+        "0.12": 0.1,
+        "0.2": 0.16666666666666666,
+        "0.3": 0.2,
+        "0.45": 0.23333333333333334
+      },
+      "seconds": 3,
+      "rate": 48000,
+      "axes": {
+        "power": 0.34860669079614626,
+        "edge": 1.6985452867750728,
+        "waver": -0.1508528745529321,
+        "spread": -0.5867007845257098
+      },
+      "coverage": {
+        "power": 1,
+        "edge": 1,
+        "waver": 1,
+        "spread": 0.5
+      }
+    }
+  ],
+  "privacy": {
+    "networkDuringAnalysis": "none; corpus fetched before measurement",
+    "audioFilesWritten": 0,
+    "audioBuffersZeroed": true,
+    "userMicrophone": "not used"
+  },
+  "caveats": [
+    "Six clips per speaker is a very small basis for normalisation",
+    "Corpus labels are intended emotions, not measurements of an internal feeling",
+    "Central 3 seconds was not re-rated by a listener",
+    "Acted corpus speech is not the same as an audition performance",
+    "Axes are acoustic descriptions, not emotion categories; this run does not turn them into one",
+    "No iPad, no real microphone, no comparison of recording conditions"
+  ]
+}

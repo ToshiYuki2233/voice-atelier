@@ -1,0 +1,168 @@
+{
+  "checkedAt": "2026-09-13T05:22:24.995Z",
+  "browser": "Chrome/152.0.7977.83",
+  "cpu": "Intel(R) Core(TM) i5-10400 CPU @ 2.90GHz",
+  "scope": "Public Japanese corpus, central 3-second windows; no user microphone; not iPad validation or general accuracy",
+  "model": {
+    "modelId": "onnx-community/wav2vec2-emotion-recognition-ONNX",
+    "revision": "8e0e66145d3a67fb99291f7834d35f073581114b",
+    "runtime": "onnxruntime-web@1.29.0",
+    "files": [
+      {
+        "path": "model/model_q4.onnx",
+        "bytes": 89860722,
+        "sha256": "363653a4bce950ddd17026efdabdf6c7a6843e00089bcbaf424c0cdf0b6ebff2"
+      },
+      {
+        "path": "model/config.json",
+        "bytes": 2368,
+        "sha256": "6e6f37a556c837587b07692a17bb9380339625f4eb82aa5b19b8d435e508bb92"
+      },
+      {
+        "path": "model/preprocessor_config.json",
+        "bytes": 257,
+        "sha256": "617bd0950f8cc9ac4062e8c73a7be60305ca5790a243df55fa6f44fb671b55b1"
+      },
+      {
+        "path": "model/README.md",
+        "bytes": 5445,
+        "sha256": "920fb6fb0d024c1935327f1560c23271ddd9d32c9e9a88db7b5a9bc398921a94"
+      },
+      {
+        "path": "runtime/ort.wasm.min.mjs",
+        "bytes": 50126,
+        "sha256": "14a0a63ad1a0fe8127722929fd16fb26c2e5352ea221bc9034d12daf314d0b92"
+      },
+      {
+        "path": "runtime/ort-wasm-simd-threaded.mjs",
+        "bytes": 24218,
+        "sha256": "5a15f1fd086b3f6c2baf1f35105b8f502653b567e165cef80028870b39748747"
+      },
+      {
+        "path": "runtime/ort-wasm-simd-threaded.wasm",
+        "bytes": 13961845,
+        "sha256": "ec8580a9d7b9476ceee52e10a7f94124e4dc71a019d666ed6d4726697c109a4d"
+      },
+      {
+        "path": "runtime/LICENSE",
+        "bytes": 1073,
+        "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+      },
+      {
+        "path": "runtime/ThirdPartyNotices.txt",
+        "bytes": 336906,
+        "sha256": "53d3fa5821ac016ac24dd35775c996efec86e2ae0841e9a3a5e146c0ae916845"
+      }
+    ]
+  },
+  "session": {
+    "loadMs": 971,
+    "inputNames": [
+      "input_values"
+    ],
+    "outputNames": [
+      "logits"
+    ],
+    "labels": {
+      "0": "angry",
+      "1": "calm",
+      "2": "disgust",
+      "3": "fearful",
+      "4": "happy",
+      "5": "sad",
+      "6": "surprised"
+    }
+  },
+  "controls": [
+    {
+      "kind": "silence",
+      "label": "sad",
+      "logits": [
+        -3.2385592460632324,
+        -0.3465685546398163,
+        0.49364757537841797,
+        1.4274369478225708,
+        -3.304924488067627,
+        5.487148761749268,
+        -1.2110199928283691
+      ],
+      "inferenceMs": 2269.5
+    },
+    {
+      "kind": "tone",
+      "label": "sad",
+      "logits": [
+        -2.903679847717285,
+        1.5723801851272583,
+        0.9629263877868652,
+        0.7137070298194885,
+        -1.4897534847259521,
+        3.514861822128296,
+        -3.293830394744873
+      ],
+      "inferenceMs": 2045
+    },
+    {
+      "kind": "noise",
+      "label": "sad",
+      "logits": [
+        -2.585615873336792,
+        -1.8879189491271973,
+        1.7065904140472412,
+        2.527642011642456,
+        -1.9732105731964111,
+        3.781036615371704,
+        -2.7962286472320557
+      ],
+      "inferenceMs": 2057.0999999996275
+    },
+    {
+      "kind": "tone",
+      "label": "sad",
+      "logits": [
+        -2.903679847717285,
+        1.5723801851272583,
+        0.9629263877868652,
+        0.7137070298194885,
+        -1.4897534847259521,
+        3.514861822128296,
+        -3.293830394744873
+      ],
+      "inferenceMs": 2067.5
+    }
+  ],
+  "dataset": "asahi417/jvnv-emotional-speech-corpus",
+  "datasetRevision": "3b6c3794754e9e514766e898f69604a0f7417218",
+  "selection": "First published row per speaker/emotion pair, fixed before inference; 4 speakers x 6 emotions; center up to 3 seconds; 16 kHz mono with browser resampling and Wav2Vec2 normalization",
+  "results": [],
+  "matches": 0,
+  "total": 0,
+  "privacy": {
+    "pageNetwork": "offline during all inference",
+    "requestsDuringInference": 0,
+    "initialRequests": 8,
+    "blockedRequests": 0,
+    "serverGets": 8,
+    "serverRejected": 0,
+    "storage": {
+      "attempts": [],
+      "local": 0,
+      "session": 0,
+      "cookie": "",
+      "databases": [],
+      "caches": [],
+      "workers": 0
+    },
+    "microphone": "denied by Permissions-Policy; not requested",
+    "audioFilesWritten": 0
+  },
+  "result": "TECHNICAL_CHECKS_PASS",
+  "caveats": [
+    "Small preselected sample; not a representative accuracy estimate",
+    "Does not validate unseen microphones, rooms, quiet speech, or iPad",
+    "Dataset intended emotion is not an objective measurement of an internal feeling",
+    "Model card says neutral; config index 1 actually says calm",
+    "No native/PyTorch numerical equivalence verification yet",
+    "No claim of a comprehensive browser/OS/library security audit"
+  ]
+}
