@@ -80,4 +80,4 @@ npm.cmd run lab:emotion
 
 - 感情モデル：Deepan Gautam / Dpngtm、ONNX変換：onnx-community。MIT表記を含む採用版モデルカードを `.model-lab/model/README.md` に保持。本番配布に向けた全権利関係の確認が済んだとは扱わない。
 - ONNX Runtime：Microsoft Corporation、MIT。バージョン1.29.0のLICENSEとThirdPartyNoticesを `.model-lab/runtime/` に保持。
-- JVNV：Detai Xin, Junfeng Jiang, Shinnosuke Takamichi, Yuki Saito, Akiko Aizawa, Hiroshi Saruwatari, “JVNV: A Corpus of Japanese Emotional Speech with Verbal Content and Nonverbal Expressions”。音声のライセンスは[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。原資料は上記公式サイト、取得先ミラーはasahi417。検証で中央3秒の切り出し・16 kHzモノラルへの変換・振幅正規化を行った。原音声も加工音声も同梱・再配布しない。
+- JVNV：Detai Xin, Junfeng Jiang, Shinnosuke Takamichi, Yuki Saito, Akiko Aizawa, Hiroshi Saruwatari, “JVNV: A Corpus of Japanese Emotional Speech with Verbal Content and Nonverbal Expressions,” arXiv:2310.06072, 2023。音声のライセンスは[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。原資料は上記公式サイト、取得先ミラーはasahi417。検証で中央3秒の切り出し・16 kHzモノラルへの変換・振幅正規化を行った。原音声も加工音声も同梱・再配布しない。

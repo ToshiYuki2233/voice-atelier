@@ -188,8 +188,15 @@ function stop(message = '停止しました。音声バッファと表示を消�
   resetMeasurements();
 }
 
+// GitHub Pages cannot send a frame-ancestors header, and a <meta> CSP cannot
+// carry one. Refuse the microphone when embedded in another page, so a site that
+// frames this one cannot dress up the permission prompt as its own.
+function isFramed() {
+  try { return window.top !== window.self; } catch { return true; }
+}
+
 function isSupported() {
-  return window.isSecureContext && !!navigator.mediaDevices?.getUserMedia && !!AudioContextClass;
+  return !isFramed() && window.isSecureContext && !!navigator.mediaDevices?.getUserMedia && !!AudioContextClass;
 }
 
 function render(time) {
@@ -289,9 +296,11 @@ draw();
 drawStage();
 if (!isSupported()) {
   startButton.disabled = true;
-  element('status').textContent = window.isSecureContext
-    ? 'このブラウザは必要な音声機能に対応していません。Safariなど対応ブラウザで開いてください。'
-    : 'マイクにはHTTPSが必要です。Windows単体では http://localhost:5173 を利用できます。';
+  element('status').textContent = isFramed()
+    ? '他のページに埋め込まれた状態ではマイクを使えません。このアプリのURLを直接開いてください。'
+    : window.isSecureContext
+      ? 'このブラウザは必要な音声機能に対応していません。Safariなど対応ブラウザで開いてください。'
+      : 'マイクにはHTTPSが必要です。Windows単体では http://localhost:5173 を利用できます。';
 }
 
 // Only app assets are cached; this module never sends audio or measurements.
