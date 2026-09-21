@@ -19,6 +19,6 @@
     "lab:rule-controls": "node scripts/emotion-lab/rule-run.mjs --synthetic-only"
   },
   "devDependencies": {
-    "onnxruntime-web": "1.29.0"
+    "onnxruntime-web": "1.30.0"
   }
 }
